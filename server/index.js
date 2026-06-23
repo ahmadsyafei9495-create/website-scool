@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -5,6 +6,7 @@ const path = require('path');
 const { init } = require('./db');
 
 init();
+console.log('Database initialized (USE_MYSQL=' + (process.env.USE_MYSQL || 'false') + ')');
 
 const app = express();
 app.use(cors());
